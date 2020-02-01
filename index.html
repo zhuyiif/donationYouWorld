@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Welcome to my blog</title>
+    <style type="text/css">
+      #bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      #bg img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        display: fixed;
+      }
+
+      #container {
+        height: 100%;
+      }
+
+      #bottom {
+        position: fixed;
+
+        bottom: 0px;
+        left: 0;
+      }
+
+      #pph_number {
+        position: fixed;
+
+        top: 700px;
+        right: 0;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        min-height: 10em;
+
+        width: 90%;
+
+        text-align: center;
+      }
+
+      #scrollBox {
+        width: 400px;
+        height: 40px;
+        line-height: 20px;
+        overflow: hidden;
+        margin: 10px;
+      }
+      #scrollBox2 {
+        width: 80%;
+        height: 80px;
+        line-height: 40px;
+        overflow: hidden;
+
+        transform: translateX(20%);
+        position: fixed;
+
+        bottom: 36%;
+      }
+
+      .c {
+        font-size: 35px;
+        color: white;
+        margin:0 -15px;
+      }
+
+      .b {
+        font-size: 30px;
+        color: white;
+        padding:0 15px;
+      }
+
+      .box-text {
+        display: flex;
+        left: 25%;
+        
+        background-color: clear;
+        width: 40px;
+        height: 40px;
+        border: 1px solid white;
+       
+        top:760px;
+        position: fixed;
+        text-align: center;
+        vertical-align: middle;
+       
+        justify-content: center;
+        align-items: center;
+        padding:5px; 
+      }
+
+      .box-text1 {
+        display: flex;
+        left: 33%;
+        background-color: clear;
+        width: 40px;
+        height: 40px;
+        border: 1px solid white;
+       
+        top:760px;
+        position: fixed;
+        text-align: center;
+        vertical-align: middle;
+       
+        justify-content: center;
+        align-items: center;
+        padding:5px; 
+      }
+
+      .box-text2 {
+        display: flex;
+        left: 41%;
+        background-color: clear;
+        width: 40px;
+        height: 40px;
+        border: 1px solid white;
+       
+        top:760px;
+        position: fixed;
+        text-align: center;
+        vertical-align: middle;
+       
+        justify-content: center;
+        align-items: center;
+        padding:5px; 
+      }
+
+      .box-text3 {
+        display: flex;
+        left: 49%;
+        background-color: clear;
+        width: 40px;
+        height: 40px;
+        border: 1px solid white;
+       
+        top:760px;
+        position: fixed;
+        text-align: center;
+        vertical-align: middle;
+       
+        justify-content: center;
+        align-items: center;
+        padding:5px; 
+      }
+
+      .center {
+        text-align: center;
+        vertical-align: middle;
+        margin: auto;
+        text-align: center;
+
+        height: 20px;
+        line-height: 20px;
+      }
+
+ .flex-container {
+    width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+
+  bottom: 50%;
+  position: fixed;
+}
+
+.flex-container > div {
+  width: 800px;
+  margin: 40px;
+  text-align: center;
+  line-height: 45px;
+
+  padding:5px; 
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="bottom">
+        <img src="bottom.jpg" alt="" />
+      </div>
+
+      <div id="bg">
+        <img src="back.jpg" alt="" />
+      </div>
+
+      <div id="scrollBox2">
+        <ul>
+          <li>
+            <a class="c">捕手 566 昵称：安心 微信号码:65820677383</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="pph_number">
+        <a class="c">你捕好货我出钱 目前参与人数</a>
+      </div>
+
+
+      <!-- <div class="flex-container">
+
+      <div class="box-text">
+        <a class="center b">0</a>
+      </div>
+
+    </div> -->
+
+    
+
+        <div class="box-text">
+          <a class="center b">0</a>
+        </div>
+
+        <div class="box-text1">
+            <a class="center b">0</a>
+          </div>
+
+          <div class="box-text2">
+            <a class="center b">0</a>
+          </div>
+
+          <div class="box-text3">
+            <a class="center b">5</a>
+          </div>
+  
+     
+
+  
+    </div>
+
+    <script type="text/javascript">
+      function Dron_ScrollBox(uid) {
+        this.scrollBox = document.getElementById(uid);
+        this.scrollBoxHeight = this.scrollBox.clientHeight;
+        this.scrollBoxInner = this.scrollBox.innerHTML;
+        this.scrollCol = this.scrolln = 0;
+        this.setScroll = function() {
+          this.scrollBox.scrollTop = this.scrollCol + this.scrolln;
+          if (this.scrolln == this.scrollBoxHeight) return this.addScroll();
+          else this.scrolln++;
+          var o = this;
+          function m() {
+            o.setScroll();
+          }
+          setTimeout(m, 40);
+        };
+        this.addScroll = function() {
+          this.scrollBox.innerHTML += "<br />" + this.scrollBoxInner;
+          this.scrollCol = this.scrollBox.scrollTop;
+          this.scrolln = 0;
+          var o = this;
+          function m() {
+            o.setScroll();
+          }
+          setTimeout(m, 2000);
+        };
+        this.init = this.addScroll;
+      }
+      //类的调用方法，可多个
+
+      new Dron_ScrollBox("scrollBox2").init();
+    </script>
+  </body>
+</html>
